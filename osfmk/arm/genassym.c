@@ -109,7 +109,7 @@
 	__asm("#DEFINITION#\t.set\t" SYM ",\t%0" : : "n" ((u_int)(VAL)))
 #else
 #define DECLARE(SYM,VAL) \
-	__asm("#DEFINITION##define " SYM "\t%0" : : "n" ((u_int)(VAL)))
+    __asm(".file \"#DEFINITION##define " SYM "       %0####\"" : : "n" ((u_int)(VAL)))
 #endif
 
 int main(int argc, char **argv);
